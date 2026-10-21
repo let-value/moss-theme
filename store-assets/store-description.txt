@@ -1,0 +1,9 @@
+ENGLISH
+=======
+
+Verdant Meadow Theme is a calm green theme for VS Code, shipped in two coordinated variants. The light one is pale sage paper with olive ink; the dark one turns the same palette into a deep olive night with fresh leaf highlights. Switching between them only changes the light level, not the character of the workspace. Install it, then pick Verdant Meadow Theme Light or Dark from the theme picker with Ctrl+K Ctrl+T.
+
+CHINESE
+=======
+
+Verdant Meadow Theme 是一套安静的绿色主题，浅色和深色两版共用同一套色板。浅色版是淡鼠尾草纸白配橄榄墨字，深色版把同一套颜色变成深橄榄夜色加新叶般的亮绿，切换时只改变明暗，不改变工作区的气质。安装后在主题选择器（Ctrl+K Ctrl+T）里挑 Verdant Meadow Theme Light 或 Dark 即可。
