@@ -1,0 +1,11 @@
+# Keep assets/ (icon + README logo), store-assets/ (README screenshots) and themes/
+.vscode/**
+.vscodeignore
+.gitignore
+.codebuddy/**
+.tmp/**
+scripts/**
+**/__pycache__/**
+*.vsix
+assets/icon-512.png
+assets/logo-candidates/**

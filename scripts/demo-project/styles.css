@@ -1,0 +1,15 @@
+:root {
+  --leaf: #c5e1a5;
+  --sage: #90a479;
+  --olive: #6c7b5a;
+  --pale: #e4f1d6;
+  --ink: #3a4630;
+}
+
+.meadow-card {
+  background: var(--pale);
+  border: 1px solid var(--sage);
+  border-radius: 12px;
+  color: var(--ink);
+  padding: 16px 20px;
+}
