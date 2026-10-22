@@ -15,3 +15,6 @@ palette/**
 DARK-*.md
 dark-palette-clusters.json
 dark-transplants.json
+LIGHT-*.md
+light-palette-clusters.json
+light-transplants.json

@@ -1,4 +1,4 @@
-"""Apply appendable dark color transplants and discover bounded neighbors.
+"""Apply appendable theme color transplants and discover bounded neighbors.
 
 Uses a frozen pre-transplant baseline so re-running never expands the migration.
 Only explicit color declarations are written. Both bounds must pass against a seed;
@@ -178,9 +178,12 @@ def apply_transplants(theme, config=None, baseline=None):
     return result, updates, ambiguous
 
 
-def write_reports(theme):
-    config = json.loads((ROOT/'palette/dark-transplants.json').read_text())
-    _, updates, ambiguous = apply_transplants(theme)
+def write_reports(theme, variant="dark"):
+    if variant not in ("dark", "light"):
+        raise ValueError("Unknown theme variant")
+    config = json.loads((ROOT/f'palette/{variant}-transplants.json').read_text())
+    baseline = json.loads((ROOT/f'palette/{variant}-baseline.json').read_text())
+    _, updates, ambiguous = apply_transplants(theme, config, baseline)
     report = ['# Dark transplants', '',
               f"Neighbor limits: semantic tree distance ≤ {config['semantic_distance']}, OKLab × 100 distance ≤ {config['color_distance']}. Measured on `palette/dark-baseline.json` before migration; no recursive propagation.", '',
               '| Role | Moss color | Explicit targets | Neighbors |', '|---|---|---:|---:|']
@@ -200,12 +203,16 @@ def write_reports(theme):
         report.append(f"- Kept `{item['token']}`: qualifies for conflicting transplant colors.")
     report += ['', '## Append another role', '',
                'Append a role to `palette/dark-transplants.json` with its name, pinned Moss color, source reference, and explicit token targets. Run `python3 scripts/build-theme.py`; it applies the manifest to dark only and regenerates this report and `dark-transplants.json`. Inspect neighbor decisions before using the theme. Adjust the two limits in the manifest as needed. A role may override them with its own `semantic_distance` and `color_distance`. Set `neighbor_strategy` to `relative-oklab` to preserve neighbor offsets around the new seed; `semantic_paths` supplies reviewed aliases for related UI surfaces. Other roles keep the default flat replacement strategy. The baseline stays fixed; adding roles does not use already migrated colors as new evidence.', '']
-    (ROOT/'DARK-TRANSPLANTS.md').write_text('\n'.join(report))
-    (ROOT/'dark-transplants.json').write_text(json.dumps(dict(config=config, updates=updates, ambiguous=ambiguous),indent=2)+'\n')
+    report_text = '\n'.join(report)
+    if variant == 'light':
+        report_text = report_text.replace('DARK', 'LIGHT').replace('Dark', 'Light').replace('dark', 'light')
+    (ROOT/f'{variant.upper()}-TRANSPLANTS.md').write_text(report_text)
+    (ROOT/f'{variant}-transplants.json').write_text(json.dumps(dict(config=config, updates=updates, ambiguous=ambiguous),indent=2)+'\n')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.parse_args()
-    theme = json.loads((ROOT/'themes/verdant-meadow-dark-color-theme.json').read_text())
-    write_reports(theme)
+    parser.add_argument('--variant', choices=('dark', 'light'), default='dark')
+    args = parser.parse_args()
+    theme = json.loads((ROOT/f'themes/verdant-meadow-{args.variant}-color-theme.json').read_text())
+    write_reports(theme, args.variant)

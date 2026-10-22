@@ -160,7 +160,8 @@ def main():
     parser.add_argument('--color-distance', '--threshold', dest='threshold', type=float, default=6, help='Maximum pairwise OKLab distance × 100 in a bundle (default: 6). Higher merges more.')
     parser.add_argument('--semantic-distance', type=int, default=2, help='Maximum tree edges between token paths (default: 2); unrelated roots never merge')
     parser.add_argument('--mode', choices=('semantic', 'perceptual'), default='semantic', help='Constrain token-path distance (default), or across all roles for comparison only')
-    parser.add_argument('--theme', type=Path, default=ROOT/'themes/verdant-meadow-dark-color-theme.json')
+    parser.add_argument('--variant', choices=('dark', 'light'), default='dark')
+    parser.add_argument('--theme', type=Path)
     parser.add_argument('--output', type=Path, help='Write full machine-readable inventory, groups and replacement map as JSON')
     parser.add_argument('--report', type=Path, help='Write compact Markdown digest')
     args = parser.parse_args()
@@ -168,7 +169,8 @@ def main():
         parser.error('--threshold must be finite and nonnegative')
     if args.semantic_distance < 0:
         parser.error('--semantic-distance must be nonnegative')
-    entries = inventory(json.loads(args.theme.read_text()))
+    theme_path = args.theme or ROOT/f'themes/verdant-meadow-{args.variant}-color-theme.json'
+    entries = inventory(json.loads(theme_path.read_text()))
     groups, replacements = analyze(entries, args.threshold, args.mode, args.semantic_distance)
     report = ['# Dark palette clusters', '',
               f'{len(entries)} RGB bases → {len(groups)} role/color bundles at threshold {args.threshold:g} ({args.mode} mode, semantic distance {args.semantic_distance}).', '',
@@ -180,9 +182,13 @@ def main():
     report += [f"| {g['role']} | `{g['representative']}` | {g['derivations']} | {g['declarations']} | {g['max_pair_distance']:.2f} | {g['max_semantic_distance']} |" for g in groups]
     report += ['', 'Control: `python3 scripts/cluster-dark-colors.py --semantic-distance 2 --color-distance 6`. Lower values keep more distinctions; higher values merge more. Threshold 0 keeps all distinct RGB bases. Path distance 0 permits only identical canonical paths; 1 permits parent/child; 2 also permits siblings. Colors must independently pass the OKLab limit. Derivation counts describe geometric grouping, not source provenance.', '',
                'Conversion reference: https://bottosson.github.io/posts/oklab/', '']
-    print('\n'.join(report))
+    report_text = '\n'.join(report)
+    if args.variant == 'light':
+        report_text = report_text.replace('Dark', 'Light').replace('dark', 'light')
+        report_text = report_text.replace('scripts/cluster-light-colors.py', 'scripts/cluster-dark-colors.py --variant light')
+    print(report_text)
     if args.report:
-        args.report.write_text('\n'.join(report))
+        args.report.write_text(report_text)
     if args.output:
         args.output.write_text(json.dumps({'mode': args.mode, 'color_distance': args.threshold, 'semantic_distance': args.semantic_distance, 'distance': '100 * Euclidean OKLab', 'rgb_bases': len(entries), 'clusters': groups, 'replacements_by_token': replacements, 'inventory': entries}, indent=2) + '\n')
 

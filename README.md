@@ -102,21 +102,34 @@ Non-Commercial License — free for personal, educational and non-commercial use
 
 非商业许可证：个人、教育与非商业用途免费使用，详见 LICENSE。
 
-## Moss dark color transplants
+## Moss color transplants
 
-Dark code colors are overlaid from `palette/dark-transplants.json`. Append a role
-with its Moss color and explicit token targets to extend the transplant. The
-manifest also controls semantic path distance and OKLab color distance for
-neighbor discovery. `palette/dark-baseline.json` is a fixed snapshot used to
-measure neighbors before migration; keep it unchanged when adding roles.
+Both variants use independent manifests (`palette/dark-transplants.json` and
+`palette/light-transplants.json`). Append a role with its Moss color and explicit
+token targets to extend a transplant. Each manifest controls semantic path and
+OKLab distance for neighbor discovery. The fixed `palette/{variant}-baseline.json`
+snapshots keep repeated builds from expanding the migration.
 
 ```sh
 python3 scripts/build-theme.py
 python3 scripts/test-dark-transplant.py
+python3 scripts/test-light-transplant.py
 python3 scripts/test-cluster-dark-colors.py
 ```
 
-The builder regenerates the dark theme and reports. Review `DARK-TRANSPLANTS.md`
-for the colors applied and any additional neighbors; conflicting neighbor targets
-are left unchanged. Existing text styles are retained. Light theme colors use the
-original palette pairs in the builder.
+The builder regenerates both themes and their color digests, cluster reports,
+and transplant reports. Review `DARK-TRANSPLANTS.md` or `LIGHT-TRANSPLANTS.md`
+for neighbor decisions. Conflicting neighbors are left unchanged. Surface neighbors
+retain their relative OKLab offsets and alpha; explicit targets take priority.
+
+The light source snapshot (`palette/moss-light-source.json`) resolves Moss's
+saved light palette, token variants, and saved link overrides. To refresh it with
+the sibling Moss checkout and its Node dependencies available:
+
+```sh
+node scripts/snapshot-moss-light.mjs
+```
+
+Normal theme builds need only Python's standard library and the pinned JSON
+sources. Refreshing the source snapshot does not change pinned manifest colors;
+update the appropriate manifest entries to adopt newly selected source colors.

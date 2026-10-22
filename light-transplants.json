@@ -1,0 +1,1096 @@
+{
+  "config": {
+    "semantic_distance": 2,
+    "color_distance": 6,
+    "roles": [
+      {
+        "name": "main-text",
+        "color": "#1E1C18",
+        "source": "palette/moss-light-source.json:editor.foreground",
+        "targets": [
+          "UI: foreground",
+          "UI: editor.foreground"
+        ]
+      },
+      {
+        "name": "numbers",
+        "color": "#005E86",
+        "source": "palette/moss-light-source.json:number",
+        "targets": [
+          "TextMate: constant.numeric, constant.language",
+          "Semantic: number"
+        ]
+      },
+      {
+        "name": "keywords",
+        "color": "#3B6305",
+        "source": "palette/moss-light-source.json:keyword",
+        "targets": [
+          "TextMate: keyword, storage",
+          "Semantic: keyword"
+        ],
+        "font_style": ""
+      },
+      {
+        "name": "functions",
+        "color": "#63501F",
+        "source": "palette/moss-light-source.json:function",
+        "targets": [
+          "TextMate: entity.name.function, support.function",
+          "Semantic: function",
+          "Semantic: method"
+        ]
+      },
+      {
+        "name": "types",
+        "color": "#006B64",
+        "source": "palette/moss-light-source.json:type",
+        "targets": [
+          "TextMate: entity.name.type, support.type, support.class",
+          "Semantic: type",
+          "Semantic: class",
+          "Semantic: interface",
+          "TextMate: support.class.component"
+        ]
+      },
+      {
+        "name": "variables",
+        "color": "#1D1D1D",
+        "source": "palette/moss-light-source.json:variable",
+        "targets": [
+          "TextMate: variable",
+          "Semantic: variable",
+          "Semantic: variable.readonly",
+          "TextMate: variable.other.constant"
+        ]
+      },
+      {
+        "name": "parameters",
+        "color": "#1D1D1D",
+        "source": "palette/moss-light-source.json:parameter",
+        "targets": [
+          "TextMate: variable.parameter",
+          "Semantic: parameter"
+        ]
+      },
+      {
+        "name": "properties",
+        "color": "#3F5B48",
+        "source": "palette/moss-light-source.json:property",
+        "targets": [
+          "TextMate: variable.other.property, support.variable.property",
+          "Semantic: property"
+        ]
+      },
+      {
+        "name": "operators",
+        "color": "#1E1C18",
+        "source": "palette/moss-light-source.json:operator",
+        "targets": [
+          "TextMate: keyword.operator",
+          "Semantic: operator",
+          "TextMate: constant.language.import-export-all"
+        ]
+      },
+      {
+        "name": "tags",
+        "color": "#3B6305",
+        "source": "palette/moss-light-source.json:keyword",
+        "targets": [
+          "TextMate: entity.name.tag"
+        ]
+      },
+      {
+        "name": "attributes",
+        "color": "#3F5B48",
+        "source": "palette/moss-light-source.json:property",
+        "targets": [
+          "TextMate: entity.other.attribute-name"
+        ]
+      },
+      {
+        "name": "strings",
+        "color": "#933814",
+        "source": "palette/moss-light-source.json:string",
+        "targets": [
+          "TextMate: string",
+          "Semantic: string",
+          "TextMate: punctuation.definition.string, punctuation.definition.template-expression, punctuation.section.interpolation"
+        ]
+      },
+      {
+        "name": "module-keywords",
+        "color": "#3B6305",
+        "source": "palette/moss-light-source.json:keyword",
+        "font_style": "",
+        "targets": [
+          "TextMate: keyword.control.import, keyword.control.export, keyword.control.from"
+        ]
+      },
+      {
+        "name": "brackets",
+        "color": "#D1D8D3",
+        "source": "palette/moss-light-source.json:editorBracketMatch.background",
+        "targets": [
+          "UI: editorBracketMatch.background"
+        ]
+      },
+      {
+        "name": "brackets-2",
+        "color": "#516630",
+        "source": "palette/moss-light-source.json:editorBracketMatch.border",
+        "targets": [
+          "UI: editorBracketMatch.border",
+          "UI: editorOverviewRuler.bracketMatchForeground"
+        ]
+      },
+      {
+        "name": "brackets-3",
+        "color": "#1E1C18",
+        "source": "palette/moss-light-source.json:editorBracketHighlight.foreground1",
+        "targets": [
+          "UI: editorBracketHighlight.foreground1",
+          "UI: editorBracketHighlight.foreground2",
+          "UI: editorBracketHighlight.foreground3",
+          "UI: editorBracketHighlight.foreground5",
+          "UI: editorBracketHighlight.foreground6",
+          "UI: editorBracketHighlight.unexpectedBracket.foreground"
+        ]
+      },
+      {
+        "name": "brackets-4",
+        "color": "#3F5B48",
+        "source": "palette/moss-light-source.json:editorBracketHighlight.foreground4",
+        "targets": [
+          "UI: editorBracketHighlight.foreground4"
+        ]
+      },
+      {
+        "name": "bracket-punctuation",
+        "color": "#1E1C18",
+        "source": "palette/moss-light-source.json:editorBracketHighlight.foreground1",
+        "targets": [
+          "TextMate: punctuation.section, punctuation.definition.block, punctuation.definition.parameters, punctuation.definition.arguments, punctuation.definition.typeparameters, punctuation.definition.bracket, punctuation.definition.tag"
+        ]
+      },
+      {
+        "name": "editor-background",
+        "color": "#DAE2DA",
+        "source": "palette/moss-light-source.json:editor.background",
+        "targets": [
+          "UI: editor.background"
+        ],
+        "neighbor_strategy": "relative-oklab",
+        "semantic_distance": 4,
+        "color_distance": 24,
+        "semantic_paths": {
+          "UI: focusBorder": "ui.workspace.surface.focusBorder",
+          "UI: inputOption.activeBorder": "ui.workspace.surface.inputOption.activeBorder",
+          "UI: input.border": "ui.workspace.surface.input.border",
+          "UI: dropdown.border": "ui.workspace.surface.dropdown.border",
+          "UI: editor.background": "ui.workspace.surface.editor.background",
+          "UI: tab.activeBackground": "ui.workspace.surface.tab.activeBackground",
+          "UI: titleBar.activeBackground": "ui.workspace.surface.titleBar.activeBackground",
+          "UI: titleBar.inactiveBackground": "ui.workspace.surface.titleBar.inactiveBackground",
+          "UI: activityBar.background": "ui.workspace.surface.activityBar.background",
+          "UI: activityBar.activeBorder": "ui.workspace.surface.activityBar.activeBorder",
+          "UI: sideBar.background": "ui.workspace.surface.sideBar.background",
+          "UI: sideBarSectionHeader.background": "ui.workspace.surface.sideBarSectionHeader.background",
+          "UI: panel.background": "ui.workspace.surface.panel.background",
+          "UI: terminal.background": "ui.workspace.surface.terminal.background",
+          "UI: panel.border": "ui.workspace.surface.panel.border",
+          "UI: editorGroup.border": "ui.workspace.surface.editorGroup.border",
+          "UI: tab.border": "ui.workspace.surface.tab.border",
+          "UI: sideBar.border": "ui.workspace.surface.sideBar.border",
+          "UI: titleBar.border": "ui.workspace.surface.titleBar.border",
+          "UI: statusBar.background": "ui.workspace.surface.statusBar.background",
+          "UI: statusBar.noFolderBackground": "ui.workspace.surface.statusBar.noFolderBackground",
+          "UI: statusBarItem.hoverBackground": "ui.workspace.surface.statusBarItem.hoverBackground",
+          "UI: statusBar.debuggingBackground": "ui.workspace.surface.statusBar.debuggingBackground",
+          "UI: editorGroupHeader.tabsBackground": "ui.workspace.surface.editorGroupHeader.tabsBackground",
+          "UI: tab.inactiveBackground": "ui.workspace.surface.tab.inactiveBackground",
+          "UI: tab.activeBorderTop": "ui.workspace.surface.tab.activeBorderTop",
+          "UI: tab.hoverBackground": "ui.workspace.surface.tab.hoverBackground",
+          "UI: tab.activeModifiedBorder": "ui.workspace.surface.tab.activeModifiedBorder",
+          "UI: tab.inactiveModifiedBorder": "ui.workspace.surface.tab.inactiveModifiedBorder",
+          "UI: list.hoverBackground": "ui.workspace.surface.list.hoverBackground",
+          "UI: list.activeSelectionBackground": "ui.workspace.surface.list.activeSelectionBackground",
+          "UI: editorSuggestWidget.selectedBackground": "ui.workspace.surface.editorSuggestWidget.selectedBackground",
+          "UI: list.inactiveSelectionBackground": "ui.workspace.surface.list.inactiveSelectionBackground",
+          "UI: tree.indentGuidesStroke": "ui.workspace.surface.tree.indentGuidesStroke",
+          "UI: editor.lineHighlightBackground": "ui.workspace.surface.editor.lineHighlightBackground",
+          "UI: editor.lineHighlightBorder": "ui.workspace.surface.editor.lineHighlightBorder",
+          "UI: selection.background": "ui.workspace.surface.selection.background",
+          "UI: editor.selectionBackground": "ui.workspace.surface.editor.selectionBackground",
+          "UI: terminal.selectionBackground": "ui.workspace.surface.terminal.selectionBackground",
+          "UI: editor.inactiveSelectionBackground": "ui.workspace.surface.editor.inactiveSelectionBackground",
+          "UI: editor.wordHighlightBackground": "ui.workspace.surface.editor.wordHighlightBackground",
+          "UI: editor.wordHighlightStrongBackground": "ui.workspace.surface.editor.wordHighlightStrongBackground",
+          "UI: editor.selectionHighlightBackground": "ui.workspace.surface.editor.selectionHighlightBackground",
+          "UI: editor.findMatchHighlightBackground": "ui.workspace.surface.editor.findMatchHighlightBackground",
+          "UI: editor.findMatchBackground": "ui.workspace.surface.editor.findMatchBackground",
+          "UI: editor.findMatchBorder": "ui.workspace.surface.editor.findMatchBorder",
+          "UI: editorBracketMatch.background": "ui.workspace.surface.editorBracketMatch.background",
+          "UI: editorBracketMatch.border": "ui.workspace.surface.editorBracketMatch.border",
+          "UI: editorIndentGuide.background1": "ui.workspace.surface.editorIndentGuide.background1",
+          "UI: editorIndentGuide.activeBackground1": "ui.workspace.surface.editorIndentGuide.activeBackground1",
+          "UI: editorWhitespace.foreground": "ui.workspace.surface.editorWhitespace.foreground",
+          "UI: editorRuler.foreground": "ui.workspace.surface.editorRuler.foreground",
+          "UI: quickInput.background": "ui.workspace.surface.quickInput.background",
+          "UI: editorHoverWidget.background": "ui.workspace.surface.editorHoverWidget.background",
+          "UI: notifications.background": "ui.workspace.surface.notifications.background",
+          "UI: input.background": "ui.workspace.surface.input.background",
+          "UI: dropdown.background": "ui.workspace.surface.dropdown.background",
+          "UI: editorWidget.background": "ui.workspace.surface.editorWidget.background",
+          "UI: editorSuggestWidget.background": "ui.workspace.surface.editorSuggestWidget.background",
+          "UI: editorWidget.border": "ui.workspace.surface.editorWidget.border",
+          "UI: editorHoverWidget.border": "ui.workspace.surface.editorHoverWidget.border",
+          "UI: editorSuggestWidget.border": "ui.workspace.surface.editorSuggestWidget.border",
+          "UI: notifications.border": "ui.workspace.surface.notifications.border",
+          "UI: button.background": "ui.workspace.surface.button.background",
+          "UI: button.hoverBackground": "ui.workspace.surface.button.hoverBackground",
+          "UI: button.secondaryBackground": "ui.workspace.surface.button.secondaryBackground",
+          "UI: button.secondaryHoverBackground": "ui.workspace.surface.button.secondaryHoverBackground",
+          "UI: badge.background": "ui.workspace.surface.badge.background",
+          "UI: activityBarBadge.background": "ui.workspace.surface.activityBarBadge.background",
+          "UI: scrollbarSlider.background": "ui.workspace.surface.scrollbarSlider.background",
+          "UI: scrollbarSlider.hoverBackground": "ui.workspace.surface.scrollbarSlider.hoverBackground",
+          "UI: scrollbarSlider.activeBackground": "ui.workspace.surface.scrollbarSlider.activeBackground"
+        }
+      },
+      {
+        "name": "panel-background",
+        "color": "#DAE2DA",
+        "source": "palette/moss-light-source.json:editor.background",
+        "targets": [
+          "UI: panel.background",
+          "UI: terminal.background"
+        ],
+        "semantic_distance": 0,
+        "color_distance": 0
+      },
+      {
+        "name": "status-bar-background",
+        "color": "#DAE2DA",
+        "source": "palette/moss-light-source.json:editor.background",
+        "targets": [
+          "UI: statusBar.background",
+          "UI: statusBar.noFolderBackground"
+        ],
+        "semantic_distance": 0,
+        "color_distance": 0
+      },
+      {
+        "name": "bottom-surface-text",
+        "color": "#1E1C18",
+        "source": "palette/moss-light-source.json:editor.foreground",
+        "targets": [
+          "UI: statusBar.foreground",
+          "UI: statusBar.noFolderForeground"
+        ],
+        "semantic_distance": 0,
+        "color_distance": 0
+      }
+    ]
+  },
+  "updates": {
+    "UI: foreground": {
+      "role": "main-text",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": "#3A4630"
+    },
+    "UI: editor.foreground": {
+      "role": "main-text",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": "#3A4630"
+    },
+    "TextMate: constant.numeric, constant.language": {
+      "role": "numbers",
+      "color": "#005E86",
+      "kind": "explicit",
+      "old": "#8A5F2E"
+    },
+    "Semantic: number": {
+      "role": "numbers",
+      "color": "#005E86",
+      "kind": "explicit",
+      "old": null
+    },
+    "TextMate: keyword, storage": {
+      "role": "keywords",
+      "color": "#3B6305",
+      "kind": "explicit",
+      "old": "#3F6B2E",
+      "font_style": ""
+    },
+    "Semantic: keyword": {
+      "role": "keywords",
+      "color": "#3B6305",
+      "kind": "explicit",
+      "old": null,
+      "font_style": ""
+    },
+    "TextMate: entity.name.function, support.function": {
+      "role": "functions",
+      "color": "#63501F",
+      "kind": "explicit",
+      "old": "#2E6B54"
+    },
+    "Semantic: function": {
+      "role": "functions",
+      "color": "#63501F",
+      "kind": "explicit",
+      "old": "#2E6B54"
+    },
+    "Semantic: method": {
+      "role": "functions",
+      "color": "#63501F",
+      "kind": "explicit",
+      "old": "#2E6B54"
+    },
+    "TextMate: entity.name.type, support.type, support.class": {
+      "role": "types",
+      "color": "#006B64",
+      "kind": "explicit",
+      "old": "#2F5B6B"
+    },
+    "Semantic: type": {
+      "role": "types",
+      "color": "#006B64",
+      "kind": "explicit",
+      "old": "#2F5B6B"
+    },
+    "Semantic: class": {
+      "role": "types",
+      "color": "#006B64",
+      "kind": "explicit",
+      "old": "#2F5B6B"
+    },
+    "Semantic: interface": {
+      "role": "types",
+      "color": "#006B64",
+      "kind": "explicit",
+      "old": "#2F5B6B"
+    },
+    "TextMate: support.class.component": {
+      "role": "types",
+      "color": "#006B64",
+      "kind": "explicit",
+      "old": null
+    },
+    "TextMate: variable": {
+      "role": "variables",
+      "color": "#1D1D1D",
+      "kind": "explicit",
+      "old": "#3A4630"
+    },
+    "Semantic: variable": {
+      "role": "variables",
+      "color": "#1D1D1D",
+      "kind": "explicit",
+      "old": "#3A4630"
+    },
+    "Semantic: variable.readonly": {
+      "role": "variables",
+      "color": "#1D1D1D",
+      "kind": "explicit",
+      "old": "#8A5F2E"
+    },
+    "TextMate: variable.other.constant": {
+      "role": "variables",
+      "color": "#1D1D1D",
+      "kind": "explicit",
+      "old": "#8A5F2E"
+    },
+    "TextMate: variable.parameter": {
+      "role": "parameters",
+      "color": "#1D1D1D",
+      "kind": "explicit",
+      "old": "#5A6B4A"
+    },
+    "Semantic: parameter": {
+      "role": "parameters",
+      "color": "#1D1D1D",
+      "kind": "explicit",
+      "old": "#5A6B4A"
+    },
+    "TextMate: variable.other.property, support.variable.property": {
+      "role": "properties",
+      "color": "#3F5B48",
+      "kind": "explicit",
+      "old": "#2F6B5B"
+    },
+    "Semantic: property": {
+      "role": "properties",
+      "color": "#3F5B48",
+      "kind": "explicit",
+      "old": "#2F6B5B"
+    },
+    "TextMate: keyword.operator": {
+      "role": "operators",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": "#6B7A5E"
+    },
+    "Semantic: operator": {
+      "role": "operators",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": null
+    },
+    "TextMate: constant.language.import-export-all": {
+      "role": "operators",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": null
+    },
+    "TextMate: entity.name.tag": {
+      "role": "tags",
+      "color": "#3B6305",
+      "kind": "explicit",
+      "old": "#3F6B2E"
+    },
+    "TextMate: entity.other.attribute-name": {
+      "role": "attributes",
+      "color": "#3F5B48",
+      "kind": "explicit",
+      "old": "#8A6A2E"
+    },
+    "TextMate: string": {
+      "role": "strings",
+      "color": "#933814",
+      "kind": "explicit",
+      "old": "#6E7C3A"
+    },
+    "Semantic: string": {
+      "role": "strings",
+      "color": "#933814",
+      "kind": "explicit",
+      "old": null
+    },
+    "TextMate: punctuation.definition.string, punctuation.definition.template-expression, punctuation.section.interpolation": {
+      "role": "strings",
+      "color": "#933814",
+      "kind": "explicit",
+      "old": null
+    },
+    "TextMate: keyword.control.import, keyword.control.export, keyword.control.from": {
+      "role": "module-keywords",
+      "color": "#3B6305",
+      "kind": "explicit",
+      "old": null,
+      "font_style": ""
+    },
+    "UI: editorBracketMatch.background": {
+      "role": "brackets",
+      "color": "#D1D8D3",
+      "kind": "explicit",
+      "old": "#D8EAC0"
+    },
+    "UI: editorBracketMatch.border": {
+      "role": "brackets-2",
+      "color": "#516630",
+      "kind": "explicit",
+      "old": "#90A479"
+    },
+    "UI: editorOverviewRuler.bracketMatchForeground": {
+      "role": "brackets-2",
+      "color": "#516630",
+      "kind": "explicit",
+      "old": null
+    },
+    "UI: editorBracketHighlight.foreground1": {
+      "role": "brackets-3",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": null
+    },
+    "UI: editorBracketHighlight.foreground2": {
+      "role": "brackets-3",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": null
+    },
+    "UI: editorBracketHighlight.foreground3": {
+      "role": "brackets-3",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": null
+    },
+    "UI: editorBracketHighlight.foreground5": {
+      "role": "brackets-3",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": null
+    },
+    "UI: editorBracketHighlight.foreground6": {
+      "role": "brackets-3",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": null
+    },
+    "UI: editorBracketHighlight.unexpectedBracket.foreground": {
+      "role": "brackets-3",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": null
+    },
+    "UI: editorBracketHighlight.foreground4": {
+      "role": "brackets-4",
+      "color": "#3F5B48",
+      "kind": "explicit",
+      "old": null
+    },
+    "TextMate: punctuation.section, punctuation.definition.block, punctuation.definition.parameters, punctuation.definition.arguments, punctuation.definition.typeparameters, punctuation.definition.bracket, punctuation.definition.tag": {
+      "role": "bracket-punctuation",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": null
+    },
+    "UI: editor.background": {
+      "role": "editor-background",
+      "color": "#DAE2DA",
+      "kind": "explicit",
+      "old": "#F7FAF2"
+    },
+    "UI: panel.background": {
+      "role": "panel-background",
+      "color": "#DAE2DA",
+      "kind": "explicit",
+      "old": "#F3F9EE"
+    },
+    "UI: terminal.background": {
+      "role": "panel-background",
+      "color": "#DAE2DA",
+      "kind": "explicit",
+      "old": "#F3F9EE"
+    },
+    "UI: statusBar.background": {
+      "role": "status-bar-background",
+      "color": "#DAE2DA",
+      "kind": "explicit",
+      "old": "#6C7B5A"
+    },
+    "UI: statusBar.noFolderBackground": {
+      "role": "status-bar-background",
+      "color": "#DAE2DA",
+      "kind": "explicit",
+      "old": "#6C7B5A"
+    },
+    "UI: statusBar.foreground": {
+      "role": "bottom-surface-text",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": "#F4F9EE"
+    },
+    "UI: statusBar.noFolderForeground": {
+      "role": "bottom-surface-text",
+      "color": "#1E1C18",
+      "kind": "explicit",
+      "old": "#F4F9EE"
+    },
+    "UI: input.border": {
+      "role": "editor-background",
+      "color": "#AFC5A4",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#CBDCBB",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 11.396664118793085
+    },
+    "UI: dropdown.border": {
+      "role": "editor-background",
+      "color": "#AFC5A4",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#CBDCBB",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 11.396664118793085
+    },
+    "UI: tab.activeBackground": {
+      "role": "editor-background",
+      "color": "#DAE2DA",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#F7FAF2",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 0.0
+    },
+    "UI: titleBar.activeBackground": {
+      "role": "editor-background",
+      "color": "#C6D7C0",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#E3EFD7",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 4.97844094814848
+    },
+    "UI: titleBar.inactiveBackground": {
+      "role": "editor-background",
+      "color": "#D0DCCD",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#EDF4E5",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 2.5034069166506625
+    },
+    "UI: activityBar.background": {
+      "role": "editor-background",
+      "color": "#BFD3B7",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#DCEBCE",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 6.704413322564423
+    },
+    "UI: sideBar.background": {
+      "role": "editor-background",
+      "color": "#D3DFD2",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#F0F7EA",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.5466912043094105
+    },
+    "UI: sideBarSectionHeader.background": {
+      "role": "editor-background",
+      "color": "#C7D8C2",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#E4F0D9",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 4.632527473853585
+    },
+    "UI: panel.border": {
+      "role": "editor-background",
+      "color": "#B7C9AD",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D3E1C4",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.437446119702374
+    },
+    "UI: editorGroup.border": {
+      "role": "editor-background",
+      "color": "#B7C9AD",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D3E1C4",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.437446119702374
+    },
+    "UI: tab.border": {
+      "role": "editor-background",
+      "color": "#B7C9AD",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D3E1C4",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.437446119702374
+    },
+    "UI: sideBar.border": {
+      "role": "editor-background",
+      "color": "#B7C9AD",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D3E1C4",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.437446119702374
+    },
+    "UI: titleBar.border": {
+      "role": "editor-background",
+      "color": "#B7C9AD",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D3E1C4",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.437446119702374
+    },
+    "UI: editorWidget.border": {
+      "role": "editor-background",
+      "color": "#B7C9AD",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D3E1C4",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.437446119702374
+    },
+    "UI: editorHoverWidget.border": {
+      "role": "editor-background",
+      "color": "#B7C9AD",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D3E1C4",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.437446119702374
+    },
+    "UI: editorSuggestWidget.border": {
+      "role": "editor-background",
+      "color": "#B7C9AD",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D3E1C4",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.437446119702374
+    },
+    "UI: notifications.border": {
+      "role": "editor-background",
+      "color": "#B7C9AD",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D3E1C4",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.437446119702374
+    },
+    "UI: editorGroupHeader.tabsBackground": {
+      "role": "editor-background",
+      "color": "#CCDAC8",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#E9F2E0",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 3.446438701490754
+    },
+    "UI: tab.inactiveBackground": {
+      "role": "editor-background",
+      "color": "#CCDAC8",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#E9F2E0",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 3.446438701490754
+    },
+    "UI: tab.hoverBackground": {
+      "role": "editor-background",
+      "color": "#C5D5BF",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#E2EDD6",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 5.362758728515779
+    },
+    "UI: button.secondaryBackground": {
+      "role": "editor-background",
+      "color": "#C5D5BF",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#E2EDD6",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 5.362758728515779
+    },
+    "UI: list.hoverBackground": {
+      "role": "editor-background",
+      "color": "#CCDAC7",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#E9F2DF",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 3.5223694962440226
+    },
+    "UI: list.activeSelectionBackground": {
+      "role": "editor-background",
+      "color": "#A9C98E",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#C5E1A5",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 12.964446951235336
+    },
+    "UI: editorSuggestWidget.selectedBackground": {
+      "role": "editor-background",
+      "color": "#A9C98E",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#C5E1A5",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 12.964446951235336
+    },
+    "UI: selection.background": {
+      "role": "editor-background",
+      "color": "#A9C98E",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#C5E1A5",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 12.964446951235336
+    },
+    "UI: editor.selectionBackground": {
+      "role": "editor-background",
+      "color": "#A9C98E",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#C5E1A5",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 12.964446951235336
+    },
+    "UI: terminal.selectionBackground": {
+      "role": "editor-background",
+      "color": "#A9C98E",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#C5E1A5",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 12.964446951235336
+    },
+    "UI: editor.wordHighlightBackground": {
+      "role": "editor-background",
+      "color": "#A9C98E",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#C5E1A580",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 12.964446951235336
+    },
+    "UI: editor.wordHighlightStrongBackground": {
+      "role": "editor-background",
+      "color": "#A9C98E",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#C5E1A580",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 12.964446951235336
+    },
+    "UI: editor.selectionHighlightBackground": {
+      "role": "editor-background",
+      "color": "#A9C98E",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#C5E1A566",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 12.964446951235336
+    },
+    "UI: list.inactiveSelectionBackground": {
+      "role": "editor-background",
+      "color": "#C2D3BB",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#DFEBD2",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 6.148523528791664
+    },
+    "UI: editor.inactiveSelectionBackground": {
+      "role": "editor-background",
+      "color": "#C2D3BB",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#DFEBD2",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 6.148523528791664
+    },
+    "UI: tree.indentGuidesStroke": {
+      "role": "editor-background",
+      "color": "#B9CBB1",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D5E3C8",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 8.73199951923255
+    },
+    "UI: button.secondaryHoverBackground": {
+      "role": "editor-background",
+      "color": "#B9CBB1",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D5E3C8",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 8.73199951923255
+    },
+    "UI: editor.lineHighlightBackground": {
+      "role": "editor-background",
+      "color": "#D3DFCF",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#F0F7E7",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 1.81264657222561
+    },
+    "UI: editor.lineHighlightBorder": {
+      "role": "editor-background",
+      "color": "#C8D8C2",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#E5F0D9",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 4.545689131314503
+    },
+    "UI: editor.findMatchHighlightBackground": {
+      "role": "editor-background",
+      "color": "#BFD5A1",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#DCEDB8",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 8.57622164453339
+    },
+    "UI: editor.findMatchBackground": {
+      "role": "editor-background",
+      "color": "#9DC076",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#B9D88C",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 16.823106836682953
+    },
+    "UI: editorIndentGuide.background1": {
+      "role": "editor-background",
+      "color": "#C0D0B8",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#DCE8CF",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 6.994762734251034
+    },
+    "UI: editorIndentGuide.activeBackground1": {
+      "role": "editor-background",
+      "color": "#8DA27F",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#A8B995",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 22.179136347188255
+    },
+    "UI: editorWhitespace.foreground": {
+      "role": "editor-background",
+      "color": "#B6C7AE",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#D2DFC5",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.758176392190473
+    },
+    "UI: editorRuler.foreground": {
+      "role": "editor-background",
+      "color": "#C6D5C1",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#E3EDD8",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 5.136368662316834
+    },
+    "UI: quickInput.background": {
+      "role": "editor-background",
+      "color": "#DEE5E0",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#FBFDF8",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.1290492246717032
+    },
+    "UI: editorHoverWidget.background": {
+      "role": "editor-background",
+      "color": "#DEE5E0",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#FBFDF8",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.1290492246717032
+    },
+    "UI: notifications.background": {
+      "role": "editor-background",
+      "color": "#DEE5E0",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#FBFDF8",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.1290492246717032
+    },
+    "UI: editorWidget.background": {
+      "role": "editor-background",
+      "color": "#DEE5E0",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#FBFDF8",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.1290492246717032
+    },
+    "UI: editorSuggestWidget.background": {
+      "role": "editor-background",
+      "color": "#DEE5E0",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#FBFDF8",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.1290492246717032
+    },
+    "UI: input.background": {
+      "role": "editor-background",
+      "color": "#E0E6E3",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#FDFEFB",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.6337783000944022
+    },
+    "UI: dropdown.background": {
+      "role": "editor-background",
+      "color": "#E0E6E3",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#FDFEFB",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.6337783000944022
+    },
+    "TextMate: constant.character.escape": {
+      "role": "strings",
+      "color": "#933814",
+      "kind": "neighbor",
+      "strategy": "flat",
+      "old": "#6E7A3A",
+      "seed": "TextMate: string",
+      "semantic_distance": 1,
+      "color_distance": 0.5942295982405063
+    }
+  },
+  "ambiguous": []
+}

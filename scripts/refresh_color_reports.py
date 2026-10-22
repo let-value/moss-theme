@@ -1,4 +1,4 @@
-"""Regenerate dark inventories from the built theme, including cluster analysis."""
+"""Regenerate inventories and cluster analysis for both built themes."""
 from collections import defaultdict
 import json
 from pathlib import Path
@@ -8,8 +8,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def refresh():
-    theme = json.loads((ROOT/'themes/verdant-meadow-dark-color-theme.json').read_text())
+def refresh_variant(variant):
+    theme = json.loads((ROOT/f'themes/verdant-meadow-{variant}-color-theme.json').read_text())
     refs = defaultdict(list)
     for key, value in theme['colors'].items():
         refs[value].append('UI: ' + key)
@@ -20,8 +20,8 @@ def refresh():
         refs[rule['settings']['foreground']].extend('TextMate: ' + scope for scope in scopes)
     syntax = {rule['settings']['foreground'] for rule in theme['tokenColors']} | {
         value if isinstance(value, str) else value['foreground'] for value in theme['semanticTokenColors'].values()}
-    lines = ['# Dark theme color digest', '',
-             'Generated from `themes/verdant-meadow-dark-color-theme.json`. Explicit assignments only; inherited VS Code defaults are outside this inventory.', '',
+    lines = [f'# {variant.title()} theme color digest', '',
+             f'Generated from `themes/verdant-meadow-{variant}-color-theme.json`. Explicit assignments only; inherited VS Code defaults are outside this inventory.', '',
              f"- {len(refs)} distinct hex values; {sum(len(c)==7 for c in refs)} opaque, {sum(len(c)==9 for c in refs)} translucent.",
              f"- {len({c[:7] for c in refs})} RGB bases when alpha is ignored.",
              f"- {len(theme['colors'])} UI declarations, {len(theme['semanticTokenColors'])} semantic declarations, {len(theme['tokenColors'])} TextMate rules.",
@@ -32,15 +32,21 @@ def refresh():
     lines += ['', '## Complete inventory', '', '| Color | Uses |', '|---|---|']
     for color, uses in sorted(refs.items()):
         lines.append('| `'+color+'` | '+'; '.join('`'+use+'`' for use in uses)+' |')
-    lines += ['', 'Dark transplants live in `palette/dark-transplants.json`; baseline light/dark pairs live in `scripts/build-theme.py`. Run the builder to regenerate themes and all dark reports. See `DARK-TRANSPLANTS.md` for neighbor decisions.', '']
-    (ROOT/'DARK-COLOR-DIGEST.md').write_text('\n'.join(lines))
-    light = json.loads((ROOT/'themes/verdant-meadow-light-color-theme.json').read_text())
+    lines += ['', f'{variant.title()} transplants live in `palette/{variant}-transplants.json`; baseline light/dark pairs live in `scripts/build-theme.py`. Run the builder to regenerate themes and all {variant} reports. See `{variant.upper()}-TRANSPLANTS.md` for neighbor decisions.', '']
+    (ROOT/f'{variant.upper()}-COLOR-DIGEST.md').write_text('\n'.join(lines))
+    subprocess.run([sys.executable, str(ROOT/'scripts/cluster-dark-colors.py'), '--variant', variant,
+                    '--report', str(ROOT/f'{variant.upper()}-PALETTE-CLUSTERS.md'),
+                    '--output', str(ROOT/f'{variant}-palette-clusters.json')], check=True, stdout=subprocess.DEVNULL)
+
+
+def refresh():
+    for variant in ('dark', 'light'):
+        refresh_variant(variant)
+    light, dark = [json.loads((ROOT/f'themes/verdant-meadow-{v}-color-theme.json').read_text()) for v in ('light','dark')]
     spec = ['# Verdant Meadow Theme color specification', '', '| VS Code region | Light | Dark |', '|---|---|---|']
-    spec += [f"| `{key}` | `{light['colors'].get(key, 'inherited')}` | `{value}` |" for key, value in theme['colors'].items()]
+    keys = dict.fromkeys([*dark['colors'], *light['colors']])
+    spec += [f"| `{key}` | `{light['colors'].get(key, 'inherited')}` | `{dark['colors'].get(key, 'inherited')}` |" for key in keys]
     (ROOT/'COLOR-SPEC.md').write_text('\n'.join(spec) + '\n')
-    subprocess.run([sys.executable, str(ROOT/'scripts/cluster-dark-colors.py'),
-                    '--report', str(ROOT/'DARK-PALETTE-CLUSTERS.md'),
-                    '--output', str(ROOT/'dark-palette-clusters.json')], check=True, stdout=subprocess.DEVNULL)
 
 
 if __name__ == '__main__':

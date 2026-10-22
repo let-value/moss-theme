@@ -178,8 +178,7 @@ class TransplantTests(unittest.TestCase):
                 self.assertEqual(result['colors'][key], value)
         self.assertEqual(result['tokenColors'][0], baseline['tokenColors'][0])  # Comments/styles.
         self.assertEqual(result, json.loads((ROOT/'themes/verdant-meadow-dark-color-theme.json').read_text()))
-        light = 'themes/verdant-meadow-light-color-theme.json'
-        self.assertEqual((ROOT/light).read_bytes(), subprocess.check_output(['git','-C',str(ROOT),'show','HEAD:'+light]))
+        # The independent light manifest is validated by test-light-transplant.py.
 
 
 if __name__ == '__main__':
