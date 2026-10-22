@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
 """Build the Verdant Meadow Light / Dark color themes from one palette table.
 
-Single source of truth: edit the (light, dark) pairs below and re-run:
+Base palette: (light, dark) pairs below. Dark transplants and neighbor limits:
+    palette/dark-transplants.json
+Regenerate themes and dark reports:
 
     py -3 scripts/build-theme.py
 """
 
 import json
 from pathlib import Path
+from dark_transplant import apply_transplants, write_reports
+from refresh_color_reports import refresh
 
 BASE = Path(__file__).resolve().parents[1]
 THEMES = BASE / "themes"
@@ -245,9 +249,12 @@ def build(variant, index):
         "semanticTokenColors": semantic,
         "tokenColors": tokens,
     }
+    if variant == "dark":
+        theme, _, _ = apply_transplants(theme)
+        write_reports(theme)
     out = THEMES / f"{NAME.replace('-theme', '')}-{variant}-color-theme.json"
     out.write_text(json.dumps(theme, indent=2) + "\n", encoding="utf-8")
-    print("wrote", out.relative_to(BASE), len(colors), "UI colors")
+    print("wrote", out.relative_to(BASE), len(theme["colors"]), "UI colors")
 
 
 def main():
@@ -257,6 +264,7 @@ def main():
     (BASE / "package.json").write_text(
         json.dumps(PACKAGE, indent=2) + "\n", encoding="utf-8")
     print("wrote package.json")
+    refresh()
 
 
 if __name__ == "__main__":

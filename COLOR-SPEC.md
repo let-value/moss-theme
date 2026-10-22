@@ -2,8 +2,8 @@
 
 | VS Code region | Light | Dark |
 |---|---|---|
-| `foreground` | `#3A4630` | `#DCE7CF` |
-| `editor.foreground` | `#3A4630` | `#DCE7CF` |
+| `foreground` | `#3A4630` | `#D4D1C8` |
+| `editor.foreground` | `#3A4630` | `#D4D1C8` |
 | `terminal.foreground` | `#3A4630` | `#DCE7CF` |
 | `input.foreground` | `#2F3A26` | `#E6F0DA` |
 | `dropdown.foreground` | `#2F3A26` | `#E6F0DA` |
@@ -79,8 +79,8 @@
 | `editor.findMatchHighlightBackground` | `#DCEDB8` | `#3F5230` |
 | `editor.findMatchBackground` | `#B9D88C` | `#4C6238` |
 | `editor.findMatchBorder` | `#6C7B5A` | `#A9C48A` |
-| `editorBracketMatch.background` | `#D8EAC0` | `#36432C` |
-| `editorBracketMatch.border` | `#90A479` | `#90A479` |
+| `editorBracketMatch.background` | `#D8EAC0` | `#2A392F` |
+| `editorBracketMatch.border` | `#90A479` | `#7D9952` |
 | `editorIndentGuide.background1` | `#DCE8CF` | `#313B29` |
 | `editorIndentGuide.activeBackground1` | `#A8B995` | `#5C6B4C` |
 | `editorWhitespace.foreground` | `#D2DFC5` | `#3B4731` |
@@ -146,3 +146,11 @@
 | `terminal.ansiBrightMagenta` | `#8E6B8E` | `#D6BCD6` |
 | `terminal.ansiBrightCyan` | `#4C8071` | `#A8DCC8` |
 | `terminal.ansiBrightWhite` | `#2F3A26` | `#E6F0DA` |
+| `editorOverviewRuler.bracketMatchForeground` | `inherited` | `#7D9952` |
+| `editorBracketHighlight.foreground1` | `inherited` | `#D4D1C8` |
+| `editorBracketHighlight.foreground2` | `inherited` | `#D4D1C8` |
+| `editorBracketHighlight.foreground3` | `inherited` | `#D4D1C8` |
+| `editorBracketHighlight.foreground5` | `inherited` | `#D4D1C8` |
+| `editorBracketHighlight.foreground6` | `inherited` | `#D4D1C8` |
+| `editorBracketHighlight.unexpectedBracket.foreground` | `inherited` | `#D4D1C8` |
+| `editorBracketHighlight.foreground4` | `inherited` | `#AFD1BA` |

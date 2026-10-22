@@ -101,3 +101,22 @@ py -3 scripts/capture-real-screenshots.py   # real VS Code screenshots
 Non-Commercial License — free for personal, educational and non-commercial use. See [LICENSE](https://github.com/vaxicy/verdant-meadow-theme/blob/main/LICENSE).
 
 非商业许可证：个人、教育与非商业用途免费使用，详见 LICENSE。
+
+## Moss dark color transplants
+
+Dark code colors are overlaid from `palette/dark-transplants.json`. Append a role
+with its Moss color and explicit token targets to extend the transplant. The
+manifest also controls semantic path distance and OKLab color distance for
+neighbor discovery. `palette/dark-baseline.json` is a fixed snapshot used to
+measure neighbors before migration; keep it unchanged when adding roles.
+
+```sh
+python3 scripts/build-theme.py
+python3 scripts/test-dark-transplant.py
+python3 scripts/test-cluster-dark-colors.py
+```
+
+The builder regenerates the dark theme and reports. Review `DARK-TRANSPLANTS.md`
+for the colors applied and any additional neighbors; conflicting neighbor targets
+are left unchanged. Existing text styles are retained. Light theme colors use the
+original palette pairs in the builder.

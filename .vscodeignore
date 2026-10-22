@@ -9,3 +9,9 @@ scripts/**
 *.vsix
 assets/icon-512.png
 assets/logo-candidates/**
+
+# Local palette analysis and transplant sources
+palette/**
+DARK-*.md
+dark-palette-clusters.json
+dark-transplants.json
