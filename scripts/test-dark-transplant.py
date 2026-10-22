@@ -1,9 +1,10 @@
 import copy
 import json
+import math
 from pathlib import Path
 import subprocess
 import unittest
-from dark_transplant import ROOT, apply_transplants, plan
+from dark_transplant import ROOT, apply_transplants, plan, relative_color, hex_from_oklab, clusters
 
 
 def theme():
@@ -115,6 +116,53 @@ class TransplantTests(unittest.TestCase):
         self.assertEqual(result['colors']['editorBracketHighlight.foreground1'], '#D4D1C8')
         self.assertEqual(result, apply_transplants(result)[0])
 
+    def test_background_relative_shades_and_scope(self):
+        baseline = json.loads((ROOT/'palette/dark-baseline.json').read_text())
+        cfg = json.loads((ROOT/'palette/dark-transplants.json').read_text())
+        original_cfg = copy.deepcopy(cfg)
+        original_cfg['roles'] = [r for r in cfg['roles'] if r['name'] != 'editor-background']
+        previous, _, _ = apply_transplants(baseline, original_cfg, baseline)
+        result, updates, _ = apply_transplants(baseline, cfg, baseline)
+        self.assertEqual(result['colors']['editor.background'], '#1F2F20')
+        self.assertEqual(result['colors']['tab.activeBackground'], '#1F2F20')
+        neighbors = {k:u for k,u in updates.items() if u['role']=='editor-background' and u['kind']=='neighbor'}
+        self.assertGreater(len(neighbors), 40)
+        self.assertGreater(len({u['color'] for u in neighbors.values()}), 15)
+        old_seed = clusters.oklab(baseline['colors']['editor.background'])
+        new_seed = clusters.oklab('#1F2F20')
+        for token, update in neighbors.items():
+            self.assertLessEqual(update['color_distance'], 24)
+            self.assertLessEqual(update['semantic_distance'], 4)
+            key = token.split(': ', 1)[1]
+            actual = result['colors'][key]
+            self.assertEqual(actual[7:], update['old'][7:])
+            # RGB rounding allows a small error in the preserved perceptual offset.
+            expected = tuple(o-s+n for o,s,n in zip(clusters.oklab(update['old']), old_seed, new_seed))
+            self.assertLess(100*math.dist(clusters.oklab(actual), expected), .3)
+        self.assertEqual(result['tokenColors'], previous['tokenColors'])
+        self.assertEqual(result['semanticTokenColors'], previous['semanticTokenColors'])
+        for key in previous['colors']:
+            if key.startswith(('diffEditor.', 'editorGutter.', 'editorBracket')):
+                self.assertEqual(result['colors'][key], previous['colors'][key])
+        for key in ('editor.foreground','button.background','errorForeground','terminal.ansiRed'):
+            self.assertEqual(result['colors'][key], previous['colors'][key])
+        self.assertEqual(result, apply_transplants(result, cfg, baseline)[0])
+
+    def test_oklab_roundtrip_and_gamut_handling(self):
+        for color in ('#000000','#FFFFFF','#1F2F20','#FF0000','#00FF00','#0000FF'):
+            self.assertEqual(hex_from_oklab(clusters.oklab(color)), color)
+        self.assertEqual(relative_color('#232A20', '#232A20', '#1F2F20'), '#1F2F20')
+        color = hex_from_oklab((.6, .8, -.5))
+        lab = clusters.oklab(color)
+        self.assertLess(abs(lab[0]-.6), .003)
+        self.assertTrue(all(0 <= int(color[i:i+2], 16) <= 255 for i in (1,3,5)))
+
+    def test_bottom_surfaces_match_editor(self):
+        baseline = json.loads((ROOT/'palette/dark-baseline.json').read_text())
+        result, _, _ = apply_transplants(baseline)
+        for key in ('panel.background', 'terminal.background', 'statusBar.background', 'statusBar.noFolderBackground'):
+            self.assertEqual(result['colors'][key], result['colors']['editor.background'])
+
     def test_real_migration_scope_and_sources(self):
         baseline = json.loads((ROOT/'palette/dark-baseline.json').read_text())
         cfg = json.loads((ROOT/'palette/dark-transplants.json').read_text())
@@ -126,7 +174,7 @@ class TransplantTests(unittest.TestCase):
             self.assertEqual((value if isinstance(value, str) else value['foreground']).lower(), moss['semanticTokenColors'][key]['foreground'])
         self.assertEqual(result['semanticTokenColors']['variable.readonly'], '#CACACA')
         for key, value in baseline['colors'].items():
-            if key not in ('foreground', 'editor.foreground', 'editorBracketMatch.background', 'editorBracketMatch.border'):
+            if 'UI: '+key not in updates:
                 self.assertEqual(result['colors'][key], value)
         self.assertEqual(result['tokenColors'][0], baseline['tokenColors'][0])  # Comments/styles.
         self.assertEqual(result, json.loads((ROOT/'themes/verdant-meadow-dark-color-theme.json').read_text()))

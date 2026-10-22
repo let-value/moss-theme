@@ -3,7 +3,7 @@
 Generated from `themes/verdant-meadow-dark-color-theme.json`. Explicit assignments only; inherited VS Code defaults are outside this inventory.
 
 - 74 distinct hex values; 65 opaque, 9 translucent.
-- 68 RGB bases when alpha is ignored.
+- 69 RGB bases when alpha is ignored.
 - 152 UI declarations, 13 semantic declarations, 25 TextMate rules.
 - 14 syntax colors.
 
@@ -41,38 +41,38 @@ Generated from `themes/verdant-meadow-dark-color-theme.json`. Explicit assignmen
 
 | Color | Uses |
 |---|---|
-| `#191F17` | `UI: activityBar.background` |
-| `#1B2118` | `UI: titleBar.activeBackground` |
-| `#1F251C` | `UI: panel.background`; `UI: terminal.background`; `UI: editorGroupHeader.tabsBackground`; `UI: tab.inactiveBackground` |
-| `#1F261C` | `UI: titleBar.inactiveBackground` |
-| `#20261D` | `UI: sideBar.background` |
-| `#222920` | `UI: input.background`; `UI: dropdown.background` |
-| `#232A20` | `UI: editor.background`; `UI: tab.activeBackground`; `UI: button.foreground`; `UI: badge.foreground`; `UI: activityBarBadge.foreground` |
-| `#283022` | `UI: sideBarSectionHeader.background`; `UI: tab.hoverBackground` |
-| `#293025` | `UI: quickInput.background`; `UI: editorHoverWidget.background`; `UI: notifications.background`; `UI: editorWidget.background`; `UI: editorSuggestWidget.background` |
+| `#152417` | `UI: activityBar.background` |
+| `#172618` | `UI: titleBar.activeBackground` |
+| `#1B2A1C` | `UI: editorGroupHeader.tabsBackground`; `UI: tab.inactiveBackground` |
+| `#1B2B1C` | `UI: titleBar.inactiveBackground` |
+| `#1C2B1D` | `UI: sideBar.background` |
+| `#1E2E20` | `UI: input.background`; `UI: dropdown.background` |
+| `#1F2F20` | `UI: editor.background`; `UI: tab.activeBackground`; `UI: panel.background`; `UI: terminal.background`; `UI: statusBar.background`; `UI: statusBar.noFolderBackground` |
+| `#232A20` | `UI: button.foreground`; `UI: badge.foreground`; `UI: activityBarBadge.foreground` |
+| `#243522` | `UI: sideBarSectionHeader.background`; `UI: tab.hoverBackground` |
+| `#253525` | `UI: quickInput.background`; `UI: editorHoverWidget.background`; `UI: notifications.background`; `UI: editorWidget.background`; `UI: editorSuggestWidget.background` |
+| `#263823` | `UI: editor.lineHighlightBackground` |
+| `#263824` | `UI: list.hoverBackground` |
 | `#2A3226` | `UI: terminal.ansiBlack` |
-| `#2A3323` | `UI: editor.lineHighlightBackground` |
-| `#2A3324` | `UI: list.hoverBackground` |
 | `#2A392F` | `UI: editorBracketMatch.background` |
 | `#2AA198` | `Semantic: type`; `Semantic: class`; `Semantic: interface`; `TextMate: entity.name.type`; `TextMate: support.type`; `TextMate: support.class`; `TextMate: support.class.component` |
-| `#313B29` | `UI: editorIndentGuide.background1`; `UI: editorRuler.foreground` |
-| `#33402A` | `UI: list.inactiveSelectionBackground`; `UI: editor.lineHighlightBorder`; `UI: editor.inactiveSelectionBackground`; `UI: button.secondaryBackground` |
-| `#38432F` | `UI: panel.border`; `UI: editorGroup.border`; `UI: tab.border`; `UI: sideBar.border`; `UI: titleBar.border` |
-| `#3B4731` | `UI: tree.indentGuidesStroke`; `UI: editorWhitespace.foreground` |
-| `#3C5030` | `UI: list.activeSelectionBackground`; `UI: editorSuggestWidget.selectedBackground`; `UI: selection.background`; `UI: editor.selectionBackground`; `UI: terminal.selectionBackground`; `UI: button.secondaryHoverBackground` |
+| `#2D4029` | `UI: editorIndentGuide.background1`; `UI: editorRuler.foreground` |
+| `#2F452A` | `UI: list.inactiveSelectionBackground`; `UI: editor.lineHighlightBorder`; `UI: editor.inactiveSelectionBackground`; `UI: button.secondaryBackground` |
+| `#34482F` | `UI: panel.border`; `UI: editorGroup.border`; `UI: tab.border`; `UI: sideBar.border`; `UI: titleBar.border` |
+| `#374C31` | `UI: tree.indentGuidesStroke`; `UI: editorWhitespace.foreground` |
+| `#375530` | `UI: list.activeSelectionBackground`; `UI: editorSuggestWidget.selectedBackground`; `UI: selection.background`; `UI: editor.selectionBackground`; `UI: terminal.selectionBackground`; `UI: button.secondaryHoverBackground` |
+| `#3A4F34` | `UI: editorWidget.border`; `UI: editorHoverWidget.border`; `UI: editorSuggestWidget.border`; `UI: notifications.border` |
+| `#3A572F` | `UI: editor.findMatchHighlightBackground` |
 | `#3C503044` | `UI: diffEditor.insertedLineBackground` |
 | `#3C503066` | `UI: diffEditor.insertedTextBackground` |
-| `#3E4A34` | `UI: editorWidget.border`; `UI: editorHoverWidget.border`; `UI: editorSuggestWidget.border`; `UI: notifications.border` |
-| `#3F5230` | `UI: editor.findMatchHighlightBackground` |
-| `#46543A` | `UI: statusBar.background`; `UI: statusBar.noFolderBackground` |
-| `#4A5740` | `UI: input.border`; `UI: dropdown.border` |
-| `#4A5F3A66` | `UI: editor.selectionHighlightBackground` |
-| `#4A5F3A80` | `UI: editor.wordHighlightBackground`; `UI: editor.wordHighlightStrongBackground` |
-| `#4C6238` | `UI: editor.findMatchBackground` |
-| `#536245` | `UI: statusBarItem.hoverBackground` |
+| `#45653A66` | `UI: editor.selectionHighlightBackground` |
+| `#45653A80` | `UI: editor.wordHighlightBackground`; `UI: editor.wordHighlightStrongBackground` |
+| `#465D40` | `UI: input.border`; `UI: dropdown.border` |
+| `#476837` | `UI: editor.findMatchBackground` |
+| `#4F6845` | `UI: statusBarItem.hoverBackground` |
+| `#58714C` | `UI: editorIndentGuide.activeBackground1` |
 | `#5A383844` | `UI: diffEditor.removedLineBackground` |
 | `#5A383866` | `UI: diffEditor.removedTextBackground` |
-| `#5C6B4C` | `UI: editorIndentGuide.activeBackground1` |
 | `#60CCFC` | `Semantic: number`; `TextMate: constant.numeric`; `TextMate: constant.language` |
 | `#6E7A62` | `UI: activityBar.inactiveForeground`; `UI: editorLineNumber.foreground`; `UI: terminal.ansiBrightBlack` |
 | `#7C8A70` | `TextMate: comment` |

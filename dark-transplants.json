@@ -172,6 +172,113 @@
         "targets": [
           "TextMate: punctuation.section, punctuation.definition.block, punctuation.definition.parameters, punctuation.definition.arguments, punctuation.definition.typeparameters, punctuation.definition.bracket, punctuation.definition.tag"
         ]
+      },
+      {
+        "name": "editor-background",
+        "color": "#1F2F20",
+        "source": "moss/vscode.json:editor.background",
+        "targets": [
+          "UI: editor.background"
+        ],
+        "neighbor_strategy": "relative-oklab",
+        "semantic_distance": 4,
+        "color_distance": 24,
+        "semantic_paths": {
+          "UI: focusBorder": "ui.workspace.surface.focusBorder",
+          "UI: inputOption.activeBorder": "ui.workspace.surface.inputOption.activeBorder",
+          "UI: input.border": "ui.workspace.surface.input.border",
+          "UI: dropdown.border": "ui.workspace.surface.dropdown.border",
+          "UI: editor.background": "ui.workspace.surface.editor.background",
+          "UI: tab.activeBackground": "ui.workspace.surface.tab.activeBackground",
+          "UI: titleBar.activeBackground": "ui.workspace.surface.titleBar.activeBackground",
+          "UI: titleBar.inactiveBackground": "ui.workspace.surface.titleBar.inactiveBackground",
+          "UI: activityBar.background": "ui.workspace.surface.activityBar.background",
+          "UI: activityBar.activeBorder": "ui.workspace.surface.activityBar.activeBorder",
+          "UI: sideBar.background": "ui.workspace.surface.sideBar.background",
+          "UI: sideBarSectionHeader.background": "ui.workspace.surface.sideBarSectionHeader.background",
+          "UI: panel.background": "ui.workspace.surface.panel.background",
+          "UI: terminal.background": "ui.workspace.surface.terminal.background",
+          "UI: panel.border": "ui.workspace.surface.panel.border",
+          "UI: editorGroup.border": "ui.workspace.surface.editorGroup.border",
+          "UI: tab.border": "ui.workspace.surface.tab.border",
+          "UI: sideBar.border": "ui.workspace.surface.sideBar.border",
+          "UI: titleBar.border": "ui.workspace.surface.titleBar.border",
+          "UI: statusBar.background": "ui.workspace.surface.statusBar.background",
+          "UI: statusBar.noFolderBackground": "ui.workspace.surface.statusBar.noFolderBackground",
+          "UI: statusBarItem.hoverBackground": "ui.workspace.surface.statusBarItem.hoverBackground",
+          "UI: statusBar.debuggingBackground": "ui.workspace.surface.statusBar.debuggingBackground",
+          "UI: editorGroupHeader.tabsBackground": "ui.workspace.surface.editorGroupHeader.tabsBackground",
+          "UI: tab.inactiveBackground": "ui.workspace.surface.tab.inactiveBackground",
+          "UI: tab.activeBorderTop": "ui.workspace.surface.tab.activeBorderTop",
+          "UI: tab.hoverBackground": "ui.workspace.surface.tab.hoverBackground",
+          "UI: tab.activeModifiedBorder": "ui.workspace.surface.tab.activeModifiedBorder",
+          "UI: tab.inactiveModifiedBorder": "ui.workspace.surface.tab.inactiveModifiedBorder",
+          "UI: list.hoverBackground": "ui.workspace.surface.list.hoverBackground",
+          "UI: list.activeSelectionBackground": "ui.workspace.surface.list.activeSelectionBackground",
+          "UI: editorSuggestWidget.selectedBackground": "ui.workspace.surface.editorSuggestWidget.selectedBackground",
+          "UI: list.inactiveSelectionBackground": "ui.workspace.surface.list.inactiveSelectionBackground",
+          "UI: tree.indentGuidesStroke": "ui.workspace.surface.tree.indentGuidesStroke",
+          "UI: editor.lineHighlightBackground": "ui.workspace.surface.editor.lineHighlightBackground",
+          "UI: editor.lineHighlightBorder": "ui.workspace.surface.editor.lineHighlightBorder",
+          "UI: selection.background": "ui.workspace.surface.selection.background",
+          "UI: editor.selectionBackground": "ui.workspace.surface.editor.selectionBackground",
+          "UI: terminal.selectionBackground": "ui.workspace.surface.terminal.selectionBackground",
+          "UI: editor.inactiveSelectionBackground": "ui.workspace.surface.editor.inactiveSelectionBackground",
+          "UI: editor.wordHighlightBackground": "ui.workspace.surface.editor.wordHighlightBackground",
+          "UI: editor.wordHighlightStrongBackground": "ui.workspace.surface.editor.wordHighlightStrongBackground",
+          "UI: editor.selectionHighlightBackground": "ui.workspace.surface.editor.selectionHighlightBackground",
+          "UI: editor.findMatchHighlightBackground": "ui.workspace.surface.editor.findMatchHighlightBackground",
+          "UI: editor.findMatchBackground": "ui.workspace.surface.editor.findMatchBackground",
+          "UI: editor.findMatchBorder": "ui.workspace.surface.editor.findMatchBorder",
+          "UI: editorBracketMatch.background": "ui.workspace.surface.editorBracketMatch.background",
+          "UI: editorBracketMatch.border": "ui.workspace.surface.editorBracketMatch.border",
+          "UI: editorIndentGuide.background1": "ui.workspace.surface.editorIndentGuide.background1",
+          "UI: editorIndentGuide.activeBackground1": "ui.workspace.surface.editorIndentGuide.activeBackground1",
+          "UI: editorWhitespace.foreground": "ui.workspace.surface.editorWhitespace.foreground",
+          "UI: editorRuler.foreground": "ui.workspace.surface.editorRuler.foreground",
+          "UI: quickInput.background": "ui.workspace.surface.quickInput.background",
+          "UI: editorHoverWidget.background": "ui.workspace.surface.editorHoverWidget.background",
+          "UI: notifications.background": "ui.workspace.surface.notifications.background",
+          "UI: input.background": "ui.workspace.surface.input.background",
+          "UI: dropdown.background": "ui.workspace.surface.dropdown.background",
+          "UI: editorWidget.background": "ui.workspace.surface.editorWidget.background",
+          "UI: editorSuggestWidget.background": "ui.workspace.surface.editorSuggestWidget.background",
+          "UI: editorWidget.border": "ui.workspace.surface.editorWidget.border",
+          "UI: editorHoverWidget.border": "ui.workspace.surface.editorHoverWidget.border",
+          "UI: editorSuggestWidget.border": "ui.workspace.surface.editorSuggestWidget.border",
+          "UI: notifications.border": "ui.workspace.surface.notifications.border",
+          "UI: button.background": "ui.workspace.surface.button.background",
+          "UI: button.hoverBackground": "ui.workspace.surface.button.hoverBackground",
+          "UI: button.secondaryBackground": "ui.workspace.surface.button.secondaryBackground",
+          "UI: button.secondaryHoverBackground": "ui.workspace.surface.button.secondaryHoverBackground",
+          "UI: badge.background": "ui.workspace.surface.badge.background",
+          "UI: activityBarBadge.background": "ui.workspace.surface.activityBarBadge.background",
+          "UI: scrollbarSlider.background": "ui.workspace.surface.scrollbarSlider.background",
+          "UI: scrollbarSlider.hoverBackground": "ui.workspace.surface.scrollbarSlider.hoverBackground",
+          "UI: scrollbarSlider.activeBackground": "ui.workspace.surface.scrollbarSlider.activeBackground"
+        }
+      },
+      {
+        "name": "panel-background",
+        "color": "#1F2F20",
+        "source": "moss/vscode.json:editor.background",
+        "targets": [
+          "UI: panel.background",
+          "UI: terminal.background"
+        ],
+        "semantic_distance": 0,
+        "color_distance": 0
+      },
+      {
+        "name": "status-bar-background",
+        "color": "#1F2F20",
+        "source": "moss/vscode.json:editor.background",
+        "targets": [
+          "UI: statusBar.background",
+          "UI: statusBar.noFolderBackground"
+        ],
+        "semantic_distance": 0,
+        "color_distance": 0
       }
     ]
   },
@@ -430,6 +537,536 @@
       "color": "#D4D1C8",
       "kind": "explicit",
       "old": null
+    },
+    "UI: editor.background": {
+      "role": "editor-background",
+      "color": "#1F2F20",
+      "kind": "explicit",
+      "old": "#232A20"
+    },
+    "UI: panel.background": {
+      "role": "panel-background",
+      "color": "#1F2F20",
+      "kind": "explicit",
+      "old": "#1F251C"
+    },
+    "UI: terminal.background": {
+      "role": "panel-background",
+      "color": "#1F2F20",
+      "kind": "explicit",
+      "old": "#1F251C"
+    },
+    "UI: statusBar.background": {
+      "role": "status-bar-background",
+      "color": "#1F2F20",
+      "kind": "explicit",
+      "old": "#46543A"
+    },
+    "UI: statusBar.noFolderBackground": {
+      "role": "status-bar-background",
+      "color": "#1F2F20",
+      "kind": "explicit",
+      "old": "#46543A"
+    },
+    "UI: input.border": {
+      "role": "editor-background",
+      "color": "#465D40",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#4A5740",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 16.507391475079764
+    },
+    "UI: dropdown.border": {
+      "role": "editor-background",
+      "color": "#465D40",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#4A5740",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 16.507391475079764
+    },
+    "UI: tab.activeBackground": {
+      "role": "editor-background",
+      "color": "#1F2F20",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#232A20",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 0.0
+    },
+    "UI: titleBar.activeBackground": {
+      "role": "editor-background",
+      "color": "#172618",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#1B2118",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 3.6256980979691114
+    },
+    "UI: titleBar.inactiveBackground": {
+      "role": "editor-background",
+      "color": "#1B2B1C",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#1F261C",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.6497573895137168
+    },
+    "UI: activityBar.background": {
+      "role": "editor-background",
+      "color": "#152417",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#191F17",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 4.452421831865686
+    },
+    "UI: sideBar.background": {
+      "role": "editor-background",
+      "color": "#1C2B1D",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#20261D",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.537428319668968
+    },
+    "UI: sideBarSectionHeader.background": {
+      "role": "editor-background",
+      "color": "#243522",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#283022",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 2.3167467600644795
+    },
+    "UI: tab.hoverBackground": {
+      "role": "editor-background",
+      "color": "#243522",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#283022",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 2.3167467600644795
+    },
+    "UI: editorGroupHeader.tabsBackground": {
+      "role": "editor-background",
+      "color": "#1B2A1C",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#1F251C",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.9500533291100168
+    },
+    "UI: tab.inactiveBackground": {
+      "role": "editor-background",
+      "color": "#1B2A1C",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#1F251C",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 1.9500533291100168
+    },
+    "UI: panel.border": {
+      "role": "editor-background",
+      "color": "#34482F",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#38432F",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.33870872157079
+    },
+    "UI: editorGroup.border": {
+      "role": "editor-background",
+      "color": "#34482F",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#38432F",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.33870872157079
+    },
+    "UI: tab.border": {
+      "role": "editor-background",
+      "color": "#34482F",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#38432F",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.33870872157079
+    },
+    "UI: sideBar.border": {
+      "role": "editor-background",
+      "color": "#34482F",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#38432F",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.33870872157079
+    },
+    "UI: titleBar.border": {
+      "role": "editor-background",
+      "color": "#34482F",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#38432F",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 9.33870872157079
+    },
+    "UI: statusBarItem.hoverBackground": {
+      "role": "editor-background",
+      "color": "#4F6845",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#536245",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 20.236379636832407
+    },
+    "UI: list.hoverBackground": {
+      "role": "editor-background",
+      "color": "#263824",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#2A3324",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 3.4051746695925207
+    },
+    "UI: list.activeSelectionBackground": {
+      "role": "editor-background",
+      "color": "#375530",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3C5030",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 13.557612725940785
+    },
+    "UI: editorSuggestWidget.selectedBackground": {
+      "role": "editor-background",
+      "color": "#375530",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3C5030",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 13.557612725940785
+    },
+    "UI: selection.background": {
+      "role": "editor-background",
+      "color": "#375530",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3C5030",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 13.557612725940785
+    },
+    "UI: editor.selectionBackground": {
+      "role": "editor-background",
+      "color": "#375530",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3C5030",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 13.557612725940785
+    },
+    "UI: terminal.selectionBackground": {
+      "role": "editor-background",
+      "color": "#375530",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3C5030",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 13.557612725940785
+    },
+    "UI: button.secondaryHoverBackground": {
+      "role": "editor-background",
+      "color": "#375530",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3C5030",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 13.557612725940785
+    },
+    "UI: list.inactiveSelectionBackground": {
+      "role": "editor-background",
+      "color": "#2F452A",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#33402A",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 8.091172531063107
+    },
+    "UI: editor.lineHighlightBorder": {
+      "role": "editor-background",
+      "color": "#2F452A",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#33402A",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 8.091172531063107
+    },
+    "UI: editor.inactiveSelectionBackground": {
+      "role": "editor-background",
+      "color": "#2F452A",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#33402A",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 8.091172531063107
+    },
+    "UI: button.secondaryBackground": {
+      "role": "editor-background",
+      "color": "#2F452A",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#33402A",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 8.091172531063107
+    },
+    "UI: tree.indentGuidesStroke": {
+      "role": "editor-background",
+      "color": "#374C31",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3B4731",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 10.748921383848565
+    },
+    "UI: editorWhitespace.foreground": {
+      "role": "editor-background",
+      "color": "#374C31",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3B4731",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 10.748921383848565
+    },
+    "UI: editor.lineHighlightBackground": {
+      "role": "editor-background",
+      "color": "#263823",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#2A3323",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 3.4214601731043404
+    },
+    "UI: editor.wordHighlightBackground": {
+      "role": "editor-background",
+      "color": "#45653A",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#4A5F3A80",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 18.799949900775154
+    },
+    "UI: editor.wordHighlightStrongBackground": {
+      "role": "editor-background",
+      "color": "#45653A",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#4A5F3A80",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 18.799949900775154
+    },
+    "UI: editor.selectionHighlightBackground": {
+      "role": "editor-background",
+      "color": "#45653A",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#4A5F3A66",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 18.799949900775154
+    },
+    "UI: editor.findMatchHighlightBackground": {
+      "role": "editor-background",
+      "color": "#3A572F",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3F5230",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 14.34936800090546
+    },
+    "UI: editor.findMatchBackground": {
+      "role": "editor-background",
+      "color": "#476837",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#4C6238",
+      "seed": "UI: editor.background",
+      "semantic_distance": 2,
+      "color_distance": 19.82593159539736
+    },
+    "UI: editorIndentGuide.background1": {
+      "role": "editor-background",
+      "color": "#2D4029",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#313B29",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 6.402668335882397
+    },
+    "UI: editorRuler.foreground": {
+      "role": "editor-background",
+      "color": "#2D4029",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#313B29",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 6.402668335882397
+    },
+    "UI: editorIndentGuide.activeBackground1": {
+      "role": "editor-background",
+      "color": "#58714C",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#5C6B4C",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 23.369924163166537
+    },
+    "UI: quickInput.background": {
+      "role": "editor-background",
+      "color": "#253525",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#293025",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 2.40386130919385
+    },
+    "UI: editorHoverWidget.background": {
+      "role": "editor-background",
+      "color": "#253525",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#293025",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 2.40386130919385
+    },
+    "UI: notifications.background": {
+      "role": "editor-background",
+      "color": "#253525",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#293025",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 2.40386130919385
+    },
+    "UI: editorWidget.background": {
+      "role": "editor-background",
+      "color": "#253525",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#293025",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 2.40386130919385
+    },
+    "UI: editorSuggestWidget.background": {
+      "role": "editor-background",
+      "color": "#253525",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#293025",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 2.40386130919385
+    },
+    "UI: input.background": {
+      "role": "editor-background",
+      "color": "#1E2E20",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#222920",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 0.41447892165521444
+    },
+    "UI: dropdown.background": {
+      "role": "editor-background",
+      "color": "#1E2E20",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#222920",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 0.41447892165521444
+    },
+    "UI: editorWidget.border": {
+      "role": "editor-background",
+      "color": "#3A4F34",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3E4A34",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 11.854677843179909
+    },
+    "UI: editorHoverWidget.border": {
+      "role": "editor-background",
+      "color": "#3A4F34",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3E4A34",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 11.854677843179909
+    },
+    "UI: editorSuggestWidget.border": {
+      "role": "editor-background",
+      "color": "#3A4F34",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3E4A34",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 11.854677843179909
+    },
+    "UI: notifications.border": {
+      "role": "editor-background",
+      "color": "#3A4F34",
+      "kind": "neighbor",
+      "strategy": "relative-oklab",
+      "old": "#3E4A34",
+      "seed": "UI: editor.background",
+      "semantic_distance": 4,
+      "color_distance": 11.854677843179909
     }
   },
   "ambiguous": []

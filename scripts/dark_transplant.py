@@ -23,10 +23,50 @@ def declarations(theme):
     return values
 
 
-def distances(left, right, values):
-    semantic = max(clusters.path_distance(a, b) for a in clusters.paths_of(left) for b in clusters.paths_of(right))
+def distances(left, right, values, role=None):
+    aliases = (role or {}).get('semantic_paths', {})
+    def paths(use):
+        return [tuple(aliases[use].split('.'))] if use in aliases else clusters.paths_of(use)
+    semantic = max(clusters.path_distance(a, b) for a in paths(left) for b in paths(right))
     color = 100 * math.dist(clusters.oklab(values[left]), clusters.oklab(values[right]))
     return semantic, color
+
+
+def linear_rgb(lab):
+    L, a, b = lab
+    l = (L + .3963377774*a + .2158037573*b) ** 3
+    m = (L - .1055613458*a - .0638541728*b) ** 3
+    s = (L - .0894841775*a - 1.2914855480*b) ** 3
+    return (4.0767416621*l - 3.3077115913*m + .2309699292*s,
+            -1.2684380046*l + 2.6097574011*m - .3413193965*s,
+            -.0041960863*l - .7034186147*m + 1.7076147010*s)
+
+
+def hex_from_oklab(lab):
+    # Out-of-gamut colors reduce chroma at fixed lightness/hue, rather than
+    # clipping RGB channels independently. Final rounding is to 8-bit sRGB.
+    L, a, b = lab
+    L = max(0, min(1, L))
+    rgb = linear_rgb((L, a, b))
+    if not all(-1e-7 <= v <= 1+1e-7 for v in rgb):
+        low, high = 0., 1.
+        for _ in range(32):
+            middle = (low+high)/2
+            trial = linear_rgb((L, a*middle, b*middle))
+            if all(0 <= v <= 1 for v in trial):
+                low = middle
+            else:
+                high = middle
+        rgb = linear_rgb((L, a*low, b*low))
+    def encode(value):
+        value = max(0, min(1, value))
+        return round(255 * (12.92*value if value <= .0031308 else 1.055*value**(1/2.4)-.055))
+    return '#' + ''.join(f'{encode(v):02X}' for v in rgb)
+
+
+def relative_color(old, old_seed, new_seed):
+    old_lab, seed_lab, new_lab = map(clusters.oklab, (old, old_seed, new_seed))
+    return hex_from_oklab(tuple(c - s + n for c, s, n in zip(old_lab, seed_lab, new_lab)))
 
 
 def plan(baseline, config):
@@ -34,6 +74,12 @@ def plan(baseline, config):
             or not isinstance(config['semantic_distance'], int) or config['semantic_distance'] < 0):
         raise ValueError('Neighbor limits must be nonnegative and finite; path distance must be an integer')
     for role in config['roles']:
+        if role.get('neighbor_strategy', 'flat') not in ('flat', 'relative-oklab'):
+            raise ValueError('Unknown neighbor strategy: ' + role['name'])
+        if not math.isfinite(role.get('color_distance', config['color_distance'])) or role.get('color_distance', config['color_distance']) < 0:
+            raise ValueError('Invalid color distance: ' + role['name'])
+        if not isinstance(role.get('semantic_distance', config['semantic_distance']), int) or role.get('semantic_distance', config['semantic_distance']) < 0:
+            raise ValueError('Invalid semantic distance: ' + role['name'])
         if not re.fullmatch(r'#[0-9A-Fa-f]{6}', role['color']):
             raise ValueError('Transplant colors must be opaque RGB hex: ' + role['name'])
     values = declarations(baseline)
@@ -64,12 +110,14 @@ def plan(baseline, config):
             seeds = [seed for seed in role['targets'] if seed in values]
             eligible = []
             for seed in seeds:
-                semantic, color = distances(candidate, seed, values)
-                if semantic <= config['semantic_distance'] and color <= config['color_distance']:
+                semantic, color = distances(candidate, seed, values, role)
+                if semantic <= role.get('semantic_distance', config['semantic_distance']) and color <= role.get('color_distance', config['color_distance']):
                     eligible.append((color, semantic, seed))
             if eligible:
                 color, semantic, seed = min(eligible)
-                matches.append(dict(role=role['name'], color=role['color'], kind='neighbor',
+                replacement = relative_color(old, values[seed], role['color']) if role.get('neighbor_strategy') == 'relative-oklab' else role['color']
+                matches.append(dict(role=role['name'], color=replacement, kind='neighbor',
+                                    strategy=role.get('neighbor_strategy', 'flat'),
                                     old=old, seed=seed, semantic_distance=semantic, color_distance=color))
         if len({m['color'] for m in matches}) > 1:
             ambiguous.append(dict(token=candidate, candidates=matches))
@@ -138,16 +186,20 @@ def write_reports(theme):
               '| Role | Moss color | Explicit targets | Neighbors |', '|---|---|---:|---:|']
     for role in config['roles']:
         report.append(f"| {role['name']} | `{role['color']}` | {len(role['targets'])} | {sum(u['role']==role['name'] and u['kind']=='neighbor' for u in updates.values())} |")
+    report += ['', '## Relative palette roles', '']
+    for role in config['roles']:
+        if role.get('neighbor_strategy') == 'relative-oklab':
+            report.append(f"- {role['name']}: path ≤ {role.get('semantic_distance', config['semantic_distance'])}, OKLab × 100 ≤ {role.get('color_distance', config['color_distance'])}. UI surfaces/structure use explicit semantic path aliases in the manifest. Each neighbor retains its pre-migration OKLab offset from the seed; alpha is preserved. Out-of-gamut results reduce chroma at fixed lightness/hue. Explicit transplants are protected.")
     report += ['', '## Neighbor decisions', '']
     neighbors = {key: value for key, value in updates.items() if value['kind'] == 'neighbor'}
     if not neighbors:
         report.append('No additional declarations satisfy both limits outside the explicit targets.')
     for key, u in neighbors.items():
-        report.append(f"- `{key}`: `{u['old']}` → `{u['color']}` via `{u['seed']}`; path {u['semantic_distance']}, color {u['color_distance']:.2f}.")
+        report.append(f"- `{key}`: `{u['old']}` → `{u['color'] + u['old'][7:]}` via `{u['seed']}`; path {u['semantic_distance']}, color {u['color_distance']:.2f}.")
     for item in ambiguous:
         report.append(f"- Kept `{item['token']}`: qualifies for conflicting transplant colors.")
     report += ['', '## Append another role', '',
-               'Append a role to `palette/dark-transplants.json` with its name, pinned Moss color, source reference, and explicit token targets. Run `python3 scripts/build-theme.py`; it applies the manifest to dark only and regenerates this report and `dark-transplants.json`. Inspect neighbor decisions before using the theme. Adjust the two limits in the manifest as needed. The baseline stays fixed; adding roles does not use already migrated colors as new evidence.', '']
+               'Append a role to `palette/dark-transplants.json` with its name, pinned Moss color, source reference, and explicit token targets. Run `python3 scripts/build-theme.py`; it applies the manifest to dark only and regenerates this report and `dark-transplants.json`. Inspect neighbor decisions before using the theme. Adjust the two limits in the manifest as needed. A role may override them with its own `semantic_distance` and `color_distance`. Set `neighbor_strategy` to `relative-oklab` to preserve neighbor offsets around the new seed; `semantic_paths` supplies reviewed aliases for related UI surfaces. Other roles keep the default flat replacement strategy. The baseline stays fixed; adding roles does not use already migrated colors as new evidence.', '']
     (ROOT/'DARK-TRANSPLANTS.md').write_text('\n'.join(report))
     (ROOT/'dark-transplants.json').write_text(json.dumps(dict(config=config, updates=updates, ambiguous=ambiguous),indent=2)+'\n')
 
