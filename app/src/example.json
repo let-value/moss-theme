@@ -1,0 +1,243 @@
+{
+  "version": 1,
+  "nodes": {
+    "root": {
+      "kind": "tree",
+      "name": "Example palette",
+      "parentId": null
+    },
+    "surfaces": {
+      "kind": "group",
+      "name": "Surfaces",
+      "parentId": "root"
+    },
+    "accents": {
+      "kind": "group",
+      "name": "Accents",
+      "parentId": "root"
+    },
+    "canvas": {
+      "kind": "token",
+      "name": "Canvas",
+      "parentId": "surfaces",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "local"
+          },
+          "values": {
+            "dark": "#132118",
+            "light": "#e9efeb"
+          }
+        }
+      }
+    },
+    "ink": {
+      "kind": "token",
+      "name": "Ink",
+      "parentId": "surfaces",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "local"
+          },
+          "values": {
+            "dark": "#d4d1c8",
+            "light": "#1e1c18"
+          }
+        }
+      }
+    },
+    "leaf": {
+      "kind": "token",
+      "name": "Leaf",
+      "parentId": "accents",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "local"
+          },
+          "values": {
+            "dark": "#96c66c",
+            "light": "#3b6305"
+          }
+        }
+      }
+    },
+    "warning": {
+      "kind": "token",
+      "name": "Warning",
+      "parentId": "accents",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "local"
+          },
+          "values": {
+            "dark": "#e1cd95",
+            "light": "#63501f"
+          }
+        },
+        "background": {
+          "source": {
+            "kind": "local"
+          },
+          "values": {
+            "dark": "#2f2b20",
+            "light": "#f3e6c8"
+          }
+        }
+      }
+    },
+    "base16": {
+      "kind": "tree",
+      "name": "Base16",
+      "parentId": "root"
+    },
+    "zed": {
+      "kind": "tree",
+      "name": "Zed",
+      "parentId": "root"
+    },
+    "vscode": {
+      "kind": "tree",
+      "name": "VS Code",
+      "parentId": "root"
+    },
+    "base00": {
+      "kind": "token",
+      "name": "base00",
+      "parentId": "base16",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "reference",
+            "tokenId": "canvas",
+            "field": "color"
+          },
+          "values": {}
+        }
+      }
+    },
+    "base05": {
+      "kind": "token",
+      "name": "base05",
+      "parentId": "base16",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "reference",
+            "tokenId": "ink",
+            "field": "color"
+          },
+          "values": {}
+        }
+      }
+    },
+    "base0B": {
+      "kind": "token",
+      "name": "base0B",
+      "parentId": "base16",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "reference",
+            "tokenId": "leaf",
+            "field": "color"
+          },
+          "values": {}
+        }
+      }
+    },
+    "zed-canvas": {
+      "kind": "token",
+      "name": "editor.background",
+      "parentId": "zed",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "reference",
+            "tokenId": "base00",
+            "field": "color"
+          },
+          "values": {}
+        }
+      }
+    },
+    "zed-keyword": {
+      "kind": "token",
+      "name": "syntax.keyword",
+      "parentId": "zed",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "reference",
+            "tokenId": "leaf",
+            "field": "color"
+          },
+          "values": {}
+        }
+      }
+    },
+    "zed-warning": {
+      "kind": "token",
+      "name": "diagnostic.warning.background",
+      "parentId": "zed",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "reference",
+            "tokenId": "warning",
+            "field": "background"
+          },
+          "values": {}
+        }
+      }
+    },
+    "vscode-canvas": {
+      "kind": "token",
+      "name": "editor.background",
+      "parentId": "vscode",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "reference",
+            "tokenId": "base00",
+            "field": "color"
+          },
+          "values": {}
+        }
+      }
+    },
+    "vscode-keyword": {
+      "kind": "token",
+      "name": "syntax.keyword",
+      "parentId": "vscode",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "reference",
+            "tokenId": "leaf",
+            "field": "color"
+          },
+          "values": {}
+        }
+      }
+    },
+    "vscode-warning": {
+      "kind": "token",
+      "name": "diagnostic.warning.background",
+      "parentId": "vscode",
+      "fields": {
+        "color": {
+          "source": {
+            "kind": "reference",
+            "tokenId": "warning",
+            "field": "background"
+          },
+          "values": {}
+        }
+      }
+    }
+  }
+}
