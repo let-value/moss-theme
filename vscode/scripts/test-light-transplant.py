@@ -84,7 +84,9 @@ class LightTransplantTests(unittest.TestCase):
         self.assertEqual(self.theme,apply_transplants(self.theme,self.config,self.base)[0])
         self.assertEqual(self.theme,json.loads((ROOT/'themes/verdant-meadow-light-color-theme.json').read_text()))
         dark='themes/verdant-meadow-dark-color-theme.json'
-        self.assertEqual((ROOT/dark).read_bytes(),subprocess.check_output(['git','-C',str(ROOT),'show','HEAD:'+dark]))
+        tracked = subprocess.check_output(['git','-C',str(ROOT),'ls-tree','--full-tree','-r','--name-only','HEAD'],text=True).splitlines()
+        reference = next(path for path in tracked if path == dark or path.endswith('/'+dark))
+        self.assertEqual((ROOT/dark).read_bytes(),subprocess.check_output(['git','-C',str(ROOT),'show','HEAD:'+reference]))
 
 
 if __name__ == '__main__':

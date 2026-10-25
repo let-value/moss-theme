@@ -1,0 +1,15 @@
+# Local / sensitive
+.codebuddy/
+
+# Build artifacts
+*.vsix
+
+# Temp
+.tmp/
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store

@@ -1,47 +1,29 @@
 {
-  "name": "verdant-meadow-theme",
-  "displayName": "Verdant Meadow Theme",
-  "description": "Calm meadow green: pale sage light mode with olive ink, and a deep olive night with fresh leaf highlights.",
-  "version": "1.0.0",
-  "publisher": "lilinhuang",
+  "name": "moss-theme",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp -C app dev",
+    "build": "vp run -r build",
+    "start": "vp run @moss/app#start",
+    "check": "vp check app vite.config.ts tsconfig.json package.json pnpm-workspace.yaml",
+    "format": "vp fmt app vite.config.ts tsconfig.json package.json pnpm-workspace.yaml"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "typescript": "^7.0.2",
+    "vite-plus": "1.4.0"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.22.1",
+      "onFail": "download"
+    }
+  },
   "engines": {
-    "vscode": "^1.80.0"
+    "node": ">=24.21.0"
   },
-  "categories": [
-    "Themes"
-  ],
-  "keywords": [
-    "theme",
-    "light",
-    "dark",
-    "green",
-    "sage",
-    "olive",
-    "pastel",
-    "meadow"
-  ],
-  "icon": "assets/icon.png",
-  "license": "SEE LICENSE IN LICENSE",
-  "galleryBanner": {
-    "color": "#232A20",
-    "theme": "dark"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/vaxicy/verdant-meadow-theme"
-  },
-  "contributes": {
-    "themes": [
-      {
-        "label": "Verdant Meadow Theme Light",
-        "uiTheme": "vs",
-        "path": "./themes/verdant-meadow-light-color-theme.json"
-      },
-      {
-        "label": "Verdant Meadow Theme Dark",
-        "uiTheme": "vs-dark",
-        "path": "./themes/verdant-meadow-dark-color-theme.json"
-      }
-    ]
-  }
+  "packageManager": "pnpm@12.15.0"
 }

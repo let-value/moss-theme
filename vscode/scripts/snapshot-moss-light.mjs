@@ -1,8 +1,8 @@
 // Refresh the pinned light source from the sibling Moss checkout. Normal theme
 // builds read the JSON snapshot and do not require Moss or Node dependencies.
 import fs from 'node:fs';
-import {parse,formatHex,formatHex8} from '../../moss/node_modules/culori/src/index.js';
-const moss = new URL('../../moss/', import.meta.url);
+import {parse,formatHex,formatHex8} from '../../../moss/node_modules/culori/src/index.js';
+const moss = new URL('../../../moss/', import.meta.url);
 const read = path => JSON.parse(fs.readFileSync(new URL(path,moss),'utf8'));
 const state=read('data/state.json');
 const mode=state.meta.colorModes.light;

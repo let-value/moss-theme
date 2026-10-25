@@ -1,15 +1,13 @@
-# Local / sensitive
-.codebuddy/
-
-# Build artifacts
-*.vsix
-
-# Temp
-.tmp/
-
-# Python
-__pycache__/
-*.pyc
+# Workspace dependencies and generated output
+node_modules/
+dist/
+.void/
+.vite/
+.vite-plus/
+.env
+.env.*
+!.env.example
+.void-wrangler.jsonc
 
 # macOS
 .DS_Store

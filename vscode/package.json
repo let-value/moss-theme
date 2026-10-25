@@ -1,0 +1,47 @@
+{
+  "name": "verdant-meadow-theme",
+  "displayName": "Verdant Meadow Theme",
+  "version": "1.0.0",
+  "description": "Calm meadow green: pale sage light mode with olive ink, and a deep olive night with fresh leaf highlights.",
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "dark",
+    "green",
+    "light",
+    "meadow",
+    "olive",
+    "pastel",
+    "sage",
+    "theme"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vaxicy/verdant-meadow-theme"
+  },
+  "publisher": "lilinhuang",
+  "contributes": {
+    "themes": [
+      {
+        "label": "Verdant Meadow Theme Light",
+        "uiTheme": "vs",
+        "path": "./themes/verdant-meadow-light-color-theme.json"
+      },
+      {
+        "label": "Verdant Meadow Theme Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/verdant-meadow-dark-color-theme.json"
+      }
+    ]
+  },
+  "icon": "assets/icon.png",
+  "galleryBanner": {
+    "color": "#232A20",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  }
+}

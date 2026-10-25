@@ -87,7 +87,7 @@ class TransplantTests(unittest.TestCase):
     def test_bracket_colors_match_moss_and_have_punctuation_fallback(self):
         baseline = json.loads((ROOT/'palette/dark-baseline.json').read_text())
         result, _, _ = apply_transplants(baseline)
-        moss = json.loads((ROOT.parent/'moss/vscode.json').read_text())
+        moss = json.loads((ROOT.parent.parent/'moss/vscode.json').read_text())
         keys = ['editorBracketHighlight.foreground'+str(i) for i in range(1, 7)]
         keys += ['editorBracketHighlight.unexpectedBracket.foreground',
                  'editorBracketMatch.background', 'editorBracketMatch.border',
@@ -167,7 +167,7 @@ class TransplantTests(unittest.TestCase):
         baseline = json.loads((ROOT/'palette/dark-baseline.json').read_text())
         cfg = json.loads((ROOT/'palette/dark-transplants.json').read_text())
         result, updates, _ = apply_transplants(baseline, cfg, baseline)
-        moss = json.loads((ROOT.parent/'moss/vscode.json').read_text())
+        moss = json.loads((ROOT.parent.parent/'moss/vscode.json').read_text())
         self.assertEqual(result['colors']['editor.foreground'].lower(), moss['colors']['editor.foreground'])
         for key in ('number','keyword','function','method','type','class','interface','variable','parameter','property','operator','string'):
             value = result['semanticTokenColors'][key]
