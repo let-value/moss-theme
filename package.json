@@ -7,6 +7,7 @@
     "dev": "vp -C app dev",
     "build": "vp run -r build",
     "start": "vp run @moss/app#start",
+    "test": "vp test",
     "check": "vp check app vite.config.ts tsconfig.json package.json pnpm-workspace.yaml",
     "format": "vp fmt app vite.config.ts tsconfig.json package.json pnpm-workspace.yaml"
   },
